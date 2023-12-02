@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 
 const Login = () => {
 
-  const [error,setError] = useState(false)
+  const [error,setError] = useState(false);
   return (
     <div>
       <div className='container'>
