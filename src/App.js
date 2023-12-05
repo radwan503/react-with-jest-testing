@@ -2,34 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/login/Login';
+import CommentForm from './components/commentform/CommentForm';
 
 function App() {
   const a = 2, b = 3;
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a data-testid="mylink"
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <ul>
-          <li>Apple</li>
-          <li>Banana</li>
-          <li>Orange</li>
-        </ul>
-        <h1 data-testid="mytestid">Hello</h1>
-        <span title='sum'>{a + b}</span>
-       </header>*/}
-      <Login />
-
+    <div data-testid="myrootdiv">
+      <CommentForm />
+      {/* <Login /> */}
     </div>
   );
 }
