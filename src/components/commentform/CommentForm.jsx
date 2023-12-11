@@ -1,8 +1,28 @@
 import React, { useState } from 'react'
 
-const CommentForm = () => {
+const CommentForm = ({setComments}) => {
  const [text,setText] = useState("");
  const [checked,setChecked] =  useState(false);
+
+//  const addComments = ()=>{
+//   setComments((prev)=>[...prev,{id:Date.now(),text:text}])
+//   setText("")
+//  }
+
+const postComment = async ()=>{
+   const res = await fetch('http://localhost:3001/addComment',{
+    method:'POST',
+    headers:{
+      'Content-Type':"application/json"
+    },
+    body:JSON.stringify({
+      text:text
+    })
+   })
+   const result = await res.json();
+   setComments((prev)=>[...prev,result])
+   setText("")
+}
 
   return (
     <div>
@@ -11,7 +31,7 @@ const CommentForm = () => {
       <input id='checkbox' type='checkbox' defaultChecked={checked}
       onChange={()=>setChecked(!checked)}/>
       <label htmlFor='checkbox'>I agree to terms an condition</label>
-      <button disabled={!checked || !text} onClick={()=>console.log('clicked')}>
+      <button disabled={!checked || !text} onClick={postComment}>
        comment
       </button>
      
